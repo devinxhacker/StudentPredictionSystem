@@ -211,8 +211,8 @@ const Quiz = () => {
             }
           }), {})
         };
-
-        const response = await axios.post('http://localhost:5000/api/quiz/submit', formattedAnswers, {
+        const backendUrl = import.meta.env.VITE_BACKEND_URL;
+        const response = await axios.post(`${backendUrl}/api/quiz/submit`, formattedAnswers, {
           withCredentials: true
         });
         
