@@ -36,6 +36,7 @@ const Dashboard = () => {
     fetchQuizData();
   }, []);
 
+  
   const fetchQuizData = async () => {
     try {
       const response = await quiz.getAnswers();
