@@ -11,5 +11,15 @@
             "src": "/(.*)",
             "dest": "server.js"
         }
+    ],
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                { "key": "Access-Control-Allow-Origin", "value": "https://learn-ahead-ai.vercel.app" },
+                { "key": "Access-Control-Allow-Credentials", "value": "true" },
+                { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+            ]
+        }
     ]
 }
