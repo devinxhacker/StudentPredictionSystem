@@ -16,7 +16,13 @@ const frontendUrl = process.env.FRONTEND_URL;
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: frontendUrl,
+  origin: (origin, callback) => {
+    if (!origin || origin === frontendUrl) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
